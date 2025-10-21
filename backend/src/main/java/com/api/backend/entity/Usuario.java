@@ -5,6 +5,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,12 +27,10 @@ public class Usuario {
 
     private String nombre;
 
+    //datos de jwt
     private boolean isEnabled = true;
-
     private boolean accountNoExpired = true;
-
     private boolean accountNoLocked = true;
-
     private boolean credentialNoExpired = true;
 
     @ManyToMany
