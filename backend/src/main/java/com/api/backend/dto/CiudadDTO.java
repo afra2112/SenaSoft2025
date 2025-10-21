@@ -8,4 +8,8 @@ public class CiudadDTO {
     private Long idCiudad;
 
     private String nombre;
+
+    private String codigoCiudad;
+
+    private String descripcion;
 }

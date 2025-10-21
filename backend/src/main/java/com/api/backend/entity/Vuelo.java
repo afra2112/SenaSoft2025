@@ -4,6 +4,8 @@ import com.api.backend.config.enums.CiudadesEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Entity
@@ -20,6 +22,12 @@ public class Vuelo {
 
     @Enumerated(EnumType.STRING)
     private CiudadesEnum salida;
+
+    private LocalDate fecha;
+
+    private LocalTime hora;
+
+    private Long precio;
 
     @ManyToOne
     @JoinColumn(name = "id_avion")

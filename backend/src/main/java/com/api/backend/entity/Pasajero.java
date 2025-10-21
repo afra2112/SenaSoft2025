@@ -32,5 +32,7 @@ public class Pasajero {
 
     private boolean infante;
 
-
+    @ManyToOne
+    @JoinColumn(name = "id_reserva")
+    private Reserva reserva;
 }

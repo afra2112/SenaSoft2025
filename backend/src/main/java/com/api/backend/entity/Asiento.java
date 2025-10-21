@@ -19,6 +19,10 @@ public class Asiento {
 
     private boolean disponible;
 
-    @OneToMany
+    @OneToMany(mappedBy = "asiento")
     private List<AsientoVuelo> asientosVuelos;
+
+    @ManyToOne
+    @JoinColumn(name = "id_avion")
+    private Avion avion;
 }

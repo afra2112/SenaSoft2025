@@ -13,4 +13,11 @@ public class AsientoVuelo {
 
     private boolean disponible;
 
+    @ManyToOne
+    @JoinColumn(name = "id_vuelo")
+    private Vuelo vuelo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_asiento")
+    private Asiento asiento;
 }

@@ -1,5 +1,6 @@
 package com.api.backend.entity;
 
+import com.api.backend.config.enums.CiudadesEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,5 +13,10 @@ public class Ciudad {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCiudad;
 
-    private String nombre;
+    @Enumerated(EnumType.STRING)
+    private CiudadesEnum nombre;
+
+    private String codigoCiudad;
+
+    private String descripcion;
 }

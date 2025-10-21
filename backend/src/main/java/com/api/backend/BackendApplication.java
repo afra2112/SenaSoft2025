@@ -1,9 +1,12 @@
 package com.api.backend;
 
+import com.api.backend.config.enums.CiudadesEnum;
 import com.api.backend.config.enums.RolesEnum;
+import com.api.backend.entity.Ciudad;
 import com.api.backend.entity.Permiso;
 import com.api.backend.entity.Rol;
 import com.api.backend.entity.Usuario;
+import com.api.backend.repository.CiudadRepository;
 import com.api.backend.repository.PermisoRepository;
 import com.api.backend.repository.RolRepository;
 import com.api.backend.repository.UsuarioRepository;
@@ -23,8 +26,19 @@ public class BackendApplication {
 	}
 
     @Bean
-    CommandLineRunner seeder(PermisoRepository permisoRepo, RolRepository rolRepo, UsuarioRepository usuarioRepo, PasswordEncoder encoder) {
+    CommandLineRunner seeder(CiudadRepository ciudadRepository, PermisoRepository permisoRepo, RolRepository rolRepo, UsuarioRepository usuarioRepo, PasswordEncoder encoder) {
         return args -> {
+            //ciudades
+            if (ciudadRepository.findAll().isEmpty()){
+                for (CiudadesEnum ciudadEnum : CiudadesEnum.values()) {
+                    Ciudad ciudad = new Ciudad();
+                    ciudad.setNombre(ciudadEnum);
+                    ciudad.setDescripcion(ciudadEnum.getDescripcion());
+                    ciudad.setCodigoCiudad(ciudadEnum.getCodigo());
+                    ciudadRepository.save(ciudad);
+                }
+            }
+
             //rol admin con sus permisos
             if (rolRepo.findByNombre(RolesEnum.ADMIN).isEmpty()){
                 List<Permiso> permisosAdmin = List.of(

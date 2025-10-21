@@ -21,6 +21,6 @@ public class Pago {
     private String metodoPago;
 
     @ManyToOne
-    @JoinColumn(name = "id_usuario")
-    private Usuario usuario;
+    @JoinColumn(name = "id_pasajero")
+    private Pasajero pasajero;
 }
