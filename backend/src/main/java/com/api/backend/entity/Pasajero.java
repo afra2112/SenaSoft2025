@@ -20,6 +20,8 @@ public class Pasajero {
 
     private String nombres;
 
+    private String email;
+
     private LocalDate fechaNacimiento;
 
     private String genero;

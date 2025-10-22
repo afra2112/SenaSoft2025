@@ -38,7 +38,7 @@ public class UsuarioImplement implements UsuarioService {
         entidad.setEmail(dto.getEmail());
         entidad.setPassword(passwordEncoder.encode(dto.getPassword()));
         entidad.setRoles(roles);
-        entidad.setNombre(dto.getNombre());
+        entidad.setNombres(dto.getNombre());
         Usuario entidadGuardada = usuarioRepository.save(entidad);
         return modelMapper.map(entidadGuardada, UsuarioDTO.class);
     }

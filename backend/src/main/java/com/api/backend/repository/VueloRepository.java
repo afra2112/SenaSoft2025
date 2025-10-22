@@ -1,6 +1,7 @@
 package com.api.backend.repository;
 
 import com.api.backend.config.enums.CiudadesEnum;
+import com.api.backend.entity.Avion;
 import com.api.backend.entity.Vuelo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -22,4 +23,6 @@ public interface VueloRepository extends JpaRepository<Vuelo, Long> {
 
     @Query("SELECT COUNT(av) FROM AsientoVuelo av WHERE av.vuelo.idVuelo = :idVuelo AND av.disponible = true")
     Long countAsientosDisponiblesByVuelo(@Param("idVuelo") Long idVuelo);
+
+    List<Vuelo> findByAvion(Avion avion);
 }

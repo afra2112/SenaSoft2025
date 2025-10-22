@@ -1,13 +1,19 @@
 package com.api.backend.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
+
+
 
 @Entity
 @Table(name = "aviones")
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Avion {
 
     @Id
@@ -23,4 +29,10 @@ public class Avion {
 
     @OneToMany(mappedBy = "avion")
     private List<Asiento> asientos;
+
+    public Avion(Integer capacidad, String modelo, Long idAvion) {
+        this.capacidad = capacidad;
+        this.modelo = modelo;
+        this.idAvion = idAvion;
+    }
 }

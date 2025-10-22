@@ -25,7 +25,21 @@ public class Usuario {
     @NotBlank
     private String password;
 
-    private String nombre;
+    private String nombres;
+
+    private String primerApellido;
+
+    private String segundoApellido;
+
+    private String telefono;
+
+    private String tipoDocumento;
+
+    @Column(unique = true)
+    private String numeroDocumento;
+
+    @OneToMany(mappedBy = "usuario")
+    private List<Pago> pagos;
 
     //datos de jwt
     private boolean isEnabled = true;

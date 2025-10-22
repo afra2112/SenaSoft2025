@@ -70,7 +70,7 @@ public class BackendApplication {
             //usuario admin seeder
             if(usuarioRepo.findByEmail("andres@gmail.com").isEmpty()){
                 Usuario u = new Usuario();
-                u.setNombre("Andres Ramirez");
+                u.setNombres("Andres Ramirez");
                 u.setEmail("andres@gmail.com");
                 u.setPassword(encoder.encode("andres1234"));
                 u.setRoles(List.of(rolRepo.findByNombre(RolesEnum.ADMIN).orElseThrow()));
@@ -79,7 +79,7 @@ public class BackendApplication {
 
             if(usuarioRepo.findByEmail("felipe@gmail.com").isEmpty()){
                 Usuario u = new Usuario();
-                u.setNombre("Felipe Agudelo");
+                u.setNombres("Felipe Agudelo");
                 u.setEmail("felipe@gmail.com");
                 u.setPassword(encoder.encode("felipe1234"));
                 u.setRoles(List.of(rolRepo.findByNombre(RolesEnum.USUARIO).orElseThrow()));

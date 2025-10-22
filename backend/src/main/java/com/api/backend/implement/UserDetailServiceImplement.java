@@ -81,7 +81,7 @@ public class UserDetailServiceImplement implements UserDetailsService {
         List<Rol> roles = List.of(rolRepository.findByNombre(RolesEnum.USUARIO).orElseThrow());
 
         Usuario usuario = new Usuario();
-        usuario.setNombre(nombre);
+        usuario.setNombres(nombre);
         usuario.setEmail(username);
         usuario.setPassword(passwordEncoder.encode(password));
         usuario.setRoles(roles);

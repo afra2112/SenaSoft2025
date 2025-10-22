@@ -29,7 +29,7 @@ public class AsientoVueloImplement implements AsientoVueloService {
 
     @Override
     public List<AsientoVueloDTO> obtenerAsientosDisponibles(Long idVuelo) {
-        List<AsientoVuelo> asientos = asientoVueloRepository.findAsientosDisponiblesByVuelo(idVuelo);
+        List<AsientoVuelo> asientos = asientoVueloRepository.findByVueloAndDisponibleTrue(vueloRepository.findById(idVuelo).orElseThrow());
         return asientos.stream()
             .map(asiento -> modelMapper.map(asiento, AsientoVueloDTO.class))
             .collect(Collectors.toList());
@@ -67,7 +67,7 @@ public class AsientoVueloImplement implements AsientoVueloService {
         Integer capacidadAvion = vuelo.getAvion().getCapacidad();
 
         // Contar asientos disponibles
-        long asientosDisponibles = asientoVueloRepository.countByVueloIdVueloAndDisponible(idVuelo, true);
+        long asientosDisponibles = asientoVueloRepository.countByVueloAndDisponible(vueloRepository.findById(idVuelo).orElseThrow(), true);
 
         // Verificar si hay suficientes asientos
         return asientosDisponibles >= cantidadPasajeros && capacidadAvion >= cantidadPasajeros;
