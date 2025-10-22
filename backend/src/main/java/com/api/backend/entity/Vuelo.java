@@ -4,8 +4,8 @@ import com.api.backend.config.enums.CiudadesEnum;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -21,13 +21,16 @@ public class Vuelo {
     private CiudadesEnum origen;
 
     @Enumerated(EnumType.STRING)
-    private CiudadesEnum salida;
+    private CiudadesEnum destino;
 
-    private LocalDate fecha;
+    @Column(nullable = false)
+    private LocalDateTime fechaSalida;
 
-    private LocalTime hora;
+    @Column(nullable = false)
+    private LocalDateTime fechaLlegada;
 
-    private Long precio;
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal precio;
 
     @ManyToOne
     @JoinColumn(name = "id_avion")
@@ -35,4 +38,7 @@ public class Vuelo {
 
     @OneToMany(mappedBy = "vuelo")
     private List<AsientoVuelo> asientosVuelos;
+
+    @OneToMany(mappedBy = "vuelo")
+    private List<Tiquete> tiquetes;
 }

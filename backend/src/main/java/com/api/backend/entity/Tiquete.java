@@ -3,7 +3,6 @@ package com.api.backend.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -15,15 +14,19 @@ public class Tiquete {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idTiquete;
 
-    private String codigo = UUID.randomUUID().toString();
+    private String codigoReserva; // Código único generado
 
     @ManyToOne
-    @JoinColumn(name = "id_asiento")
-    private Asiento asientos;
-
-    @OneToOne
     @JoinColumn(name = "id_vuelo")
     private Vuelo vuelo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_asiento_vuelo")
+    private AsientoVuelo asientoVuelo;
+
+    @ManyToOne
+    @JoinColumn(name = "id_pasajero")
+    private Pasajero pasajero;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id_pago")

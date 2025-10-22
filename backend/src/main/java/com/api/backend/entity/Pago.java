@@ -20,7 +20,16 @@ public class Pago {
 
     private String metodoPago;
 
+    private String estadoPago; // "PENDIENTE", "APROBADO", "RECHAZADO"
+
+    // Datos del pagador
+    private String nombrePagador;
+    private String tipoDocumentoPagador;
+    private String numeroDocumentoPagador;
+    private String correoPagador;
+    private String telefonoPagador;
+
     @ManyToOne
-    @JoinColumn(name = "id_pasajero")
-    private Pasajero pasajero;
+    @JoinColumn(name = "id_usuario")
+    private Usuario usuario;
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "asientos_vuelo")
 public class AsientoVuelo {
 
     @Id

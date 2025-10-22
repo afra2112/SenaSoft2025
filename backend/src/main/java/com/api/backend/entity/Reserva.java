@@ -26,4 +26,6 @@ public class Reserva {
 
     @OneToMany(mappedBy = "reserva")
     private List<Tiquete> tiquetes;
+
+    private String codigoReserva; // Código único para la reserva completa
 }
