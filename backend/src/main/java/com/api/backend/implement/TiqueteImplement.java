@@ -5,6 +5,7 @@ import com.api.backend.dto.TiqueteDTO;
 import com.api.backend.entity.Pasajero;
 import com.api.backend.entity.Reserva;
 import com.api.backend.entity.Tiquete;
+import com.api.backend.repository.ReservaRepository;
 import com.api.backend.repository.TiqueteRepository;
 import com.api.backend.service.TiqueteService;
 import com.fasterxml.jackson.databind.ObjectMapper;

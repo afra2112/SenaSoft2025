@@ -6,6 +6,7 @@ import com.api.backend.dto.SimulacionPagoResponse;
 import com.api.backend.entity.Pago;
 import com.api.backend.entity.Reserva;
 import com.api.backend.repository.PagoRepository;
+import com.api.backend.repository.ReservaRepository;
 import com.api.backend.service.PagoService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;

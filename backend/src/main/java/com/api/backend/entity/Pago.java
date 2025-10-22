@@ -32,4 +32,7 @@ public class Pago {
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
+
+    @OneToOne(mappedBy = "pago")
+    private Reserva reserva;
 }
